@@ -1,0 +1,23 @@
+nav{
+    // button:focus {
+    //     outline: 0px none; 
+    //     outline: 0px auto -webkit-focus-ring-color; 
+    // }
+
+    .nav-menu {
+        position:absolute !important;
+        right:5% !important;
+    }
+
+    .mat-button{
+        font-size: 13px;
+        font-weight: 400;
+        color: white !important;
+    }
+}
+
+
+    button:focus {
+        outline: 0px none; 
+        outline: 0px auto -webkit-focus-ring-color; 
+    }

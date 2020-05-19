@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-5">
+  <a class="navbar-brand" [routerLink]="['/']">NGRX</a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse nav-menu" id="navbarSupportedContent">
+    <button class="nav-menu-button" mat-button>
+      Invoice
+    </button>
+    <button class="nav-menu-button" 
+            mat-button 
+            [matMenuTriggerFor]="settingMenu">
+      Setting
+    </button>
+
+    <mat-menu #settingMenu="matMenu">
+      <button mat-menu-item [routerLink]="['/companies']">Company</button>
+      <button mat-menu-item>Customer</button>
+    </mat-menu>
+  </div>
+</nav>
+
