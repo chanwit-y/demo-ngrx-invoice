@@ -8,6 +8,7 @@ import * as fromCompany from '../state/company.reducer';
 @Component({
     selector: 'company',
     templateUrl: './company.component.html',
+    styleUrls: ['./company.component.scss']
 })
 export class CompanyComponent implements OnInit {
 

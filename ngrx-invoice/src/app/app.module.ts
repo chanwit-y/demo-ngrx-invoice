@@ -16,6 +16,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects'; 
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { EffectsModule } from '@ngrx/effects';
     MatMenuModule,
     MatIconModule,
     MatButtonModule,
+    HttpClientModule,
 
     StoreModule.forRoot({}),
     StoreDevtoolsModule.instrument(),

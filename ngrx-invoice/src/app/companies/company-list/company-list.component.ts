@@ -16,12 +16,17 @@ export class CompanyListComponent implements OnInit {
     constructor(private store: Store<fromCompany.AppState>) { }
 
     ngOnInit() {
-        this.store.dispatch(new companyActions.LoadCompanes());
+        this.store.dispatch(new companyActions.LoadCompanies());
         this.companies$ = this.store.pipe(select(fromCompany.getCompanies));
+    }
 
-        this.companies$.subscribe(rsp => {
-            console.log(rsp);
-            
-        })
+    editCompany(company: Company) {
+        console.log(company);
+        
+       this.store.dispatch(new companyActions.LoadCompany(company.id)); 
+
+        const company$ = this.store.select(fromCompany.getCurrentCompany);
+        company$.subscribe(x => console.log(x));
+        
     }
 }

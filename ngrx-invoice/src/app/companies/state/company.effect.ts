@@ -16,20 +16,51 @@ import { map, mergeMap, catchError } from 'rxjs/operators';
 export class CompanyEffect {
     constructor(
         private action$: Actions,
-        private copanyService: CompanyService
+        private companyService: CompanyService
     ) {}
 
     @Effect()
     loadCompanies$: Observable<Action> = this.action$.pipe(
-        ofType<companyActions.LoadCompanes>(
+        ofType<companyActions.LoadCompanies>(
             companyActions.CompanyActionType.LOAD_CUMPANIES
         ),
-        mergeMap((actions: companyActions.LoadCompanes) =>
-           this.copanyService.getCompanies().pipe(
+        mergeMap((actions: companyActions.LoadCompanies) =>
+           this.companyService.getCompanies().pipe(
                 map((companies: Company[]) =>
                     new companyActions.LoadCompaniesSuccess(companies)
                 ),
                 catchError(err => of(new companyActions.LoadCompaniesFail(err)))
-           ))
+           )
+        )
+    );
+
+    @Effect()
+    loadCompany$: Observable<Action> = this.action$.pipe(
+        ofType<companyActions.LoadCompany>(
+            companyActions.CompanyActionType.LOAD_CUMPANY
+        ),
+        mergeMap((action: companyActions.LoadCompany) => 
+            this.companyService.getCompany(action.payload).pipe(
+                map((company: Company) =>
+                    new companyActions.LoadCompanySuccess(company)
+                ),
+                catchError(err => of(new companyActions.LoadCompanyFail(err)))
+            )
+        )
+    );
+
+    @Effect()
+    createCompany$: Observable<Action> = this.action$.pipe(
+        ofType<companyActions.CreateCompany>(
+            companyActions.CompanyActionType.CREATE_CUMPANY
+        ),
+        mergeMap((action: companyActions.CreateCompany) =>
+            this.companyService.createCustomer(action.payload).pipe(
+                map((newCompany: Company) =>
+                    new companyActions.CreateCompanySuccess(newCompany)
+                ),
+                catchError(err => of(new companyActions.CreateCompanyFail(err)))
+            )
+        )
     );
 }

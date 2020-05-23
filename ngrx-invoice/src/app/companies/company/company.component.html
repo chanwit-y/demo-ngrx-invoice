@@ -1,5 +1,11 @@
 <div>
-    <h1>Companies</h1>
-    <hr />
-    <company-list></company-list>
+  <h1>Company List</h1>
+  <div fxLayout="row" fxLayoutAlign="end center">
+    <button mat-icon-button aria-label="Add Company">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+  <div fxLayout="row">
+      <company-list fxFlex="100"></company-list>
+  </div>
 </div>

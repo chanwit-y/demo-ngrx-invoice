@@ -12,6 +12,9 @@ import { CompanyEditComponent } from './company-edit/company-edit.component';
 import { companyReducer } from './state/company.reducer';
 import { StoreModule } from '@ngrx/store';
 import { CompanyEffect } from './state/company.effect';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 const companyRoutes: Routes = [
     { path: "", component: CompanyComponent }
@@ -24,10 +27,13 @@ const companyRoutes: Routes = [
         CompanyAddComponent,
         CompanyEditComponent,
     ],
-    imports: [ 
+    imports: [
         CommonModule,
         ReactiveFormsModule,
-        RouterModule.forChild(companyRoutes), 
+        FlexLayoutModule,
+        MatIconModule,
+        MatButtonModule,
+        RouterModule.forChild(companyRoutes),
 
         StoreModule.forFeature('companies', companyReducer),
         EffectsModule.forFeature([CompanyEffect])
@@ -35,4 +41,4 @@ const companyRoutes: Routes = [
     exports: [],
     providers: [],
 })
-export class CompanyModule {}
+export class CompanyModule { }

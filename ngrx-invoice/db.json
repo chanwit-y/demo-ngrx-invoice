@@ -1,5 +1,16 @@
 {
-    "company": {},
+    "companies": [{
+        "id": 1,
+        "name": "Test1",
+        "address": "xxxx",
+        "tel": "12345678"
+    },
+    {
+        "id": 2,
+        "name": "Test2",
+        "address": "xxxx",
+        "tel": "12345678"
+    }],
     "customers": [],
     "invoices": [],
     "invoice-details": []
